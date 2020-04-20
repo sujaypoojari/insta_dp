@@ -28,55 +28,82 @@ class _HomeState extends State<Home> {
       ),
       body: Center(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.fromLTRB(10, 0, 10, 20),
-            child: Form(
-              key: _formKey,
-              child: TextFormField(
-                controller: _textFieldController,
-                decoration: InputDecoration(
-                  labelText: 'User Name',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.fromLTRB(10, 0, 10, 20),
+                child: Form(
+                  key: _formKey,
+                  child: TextFormField(
+                    controller: _textFieldController,
+                    decoration: InputDecoration(
+                      labelText: 'User Name',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                    ),
+                    validator: (name) {
+                      if (name.isEmpty || name.contains('@') || name.length < 3)
+                        return 'Invalid username';
+                    },
+                    onSaved: (name) => _username = name,
                   ),
                 ),
-                validator: (name) {
-                  if (name.isEmpty || name.contains('@') || name.length < 3)
-                    return 'Invalid username';
-                },
-                onSaved: (name) => _username = name,
               ),
-            ),
+              Padding(padding: EdgeInsets.only(top: 10)),
+              Container(
+                child: MaterialButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(60)),
+                    padding: EdgeInsets.fromLTRB(35, 15, 35, 15),
+                    color: Colors.lightBlueAccent,
+                    onPressed: () async {
+                      try {
+                        if (_formKey.currentState.validate()) {
+                          fetchData();
+                        }
+                      } catch (e) {
+                        //do whatever you want
+                        print("Error");
+                      }
+                    },
+                    child: Text(
+                      "Search",
+                      style: TextStyle(fontSize: 21, color: Colors.black),
+                    )),
+
+
+              ),
+
+
+            ],
+
+          )),
+
+      bottomNavigationBar: Stack(
+        children: [
+          new Container(
+            height: 40,
+            color: Colors.black,
           ),
-          Padding(padding: EdgeInsets.only(top: 10)),
-          Container(
-            child: MaterialButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(60)),
-                padding: EdgeInsets.fromLTRB(35, 15, 35, 15),
-                color: Colors.lightBlueAccent,
-                onPressed: () async {
-                  try {
-                    if (_formKey.currentState.validate()) {
-                      fetchData();
-                    }
-                  } catch (e) {
-                    //do whatever you want
-                    print("Error");
-                  }
-                },
-                child: Text(
-                  "Search",
-                  style: TextStyle(fontSize: 21, color: Colors.black),
-                )),
-          )
+          Positioned(
+
+            left: 0.0,
+            right: 0.0,
+            top: 0.0,
+            bottom: 0.0,
+            child: Text("Developed by Sujay Koteshwar" ,style: TextStyle(color: Colors.lightBlueAccent,fontSize: 20,fontWeight: FontWeight.w100,),)
+          ),
         ],
-      )),
+      ),
     );
+
+
   }
+
+
+
 
   alertWindow() {
     AlertDialog alert = AlertDialog(
