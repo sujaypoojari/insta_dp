@@ -1,17 +1,18 @@
 # insta_dp
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 # Flutter_insta_profile_saver
+A basic flutter app to view and save the instagram user profile
+<p float="left">
+  <img src="images/main.png" width="270" width="160" />
+  <img src="images/2u.png" width="270" width="160"" /> 
+  <img src="images/3e.png" width="270" width="160" />
+</p>
+                                                  
+                                                  
+ NOTE: 
+Add the android.permission.INTERNET permission to AndroidManifest.xml file
+if you are generating .apk file for release
+otherwise it wont work due to lack of permission
+
+
+
+
