@@ -1,4 +1,4 @@
-# insta_dp
+# instadp
 # Flutter_insta_profile_saver
 A basic flutter app to view and save the instagram user profile
 <p float="left">
